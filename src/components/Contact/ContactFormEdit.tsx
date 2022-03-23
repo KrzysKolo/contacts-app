@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {FormControl, FormLabel, InputGroup, InputLeftElement  } from '@chakra-ui/react';
+import {FormControl, FormLabel, HStack, InputGroup, InputLeftElement  } from '@chakra-ui/react';
 import {Select, Stack, Input, Button } from '@chakra-ui/react'
 import { ContactFormEditProps } from '../../models/appModels';
 import { EmailIcon, PhoneIcon } from '@chakra-ui/icons';
@@ -64,6 +64,14 @@ const ContactFormEdit = ({updateContact, onClose, onOpen, contact}: ContactFormE
           onChange={(e) => setName(e.target.value)}
         />
       </FormControl>
+      <FormControl id="description">
+        <FormLabel>Stanowisko</FormLabel>
+        <Input
+          value={description}
+          type="text"
+          onChange={(e) => setDescription(e.target.value)}
+          />
+      </FormControl>
       <FormControl id="email">
         <FormLabel>Email</FormLabel>
           <InputGroup>
@@ -92,37 +100,31 @@ const ContactFormEdit = ({updateContact, onClose, onOpen, contact}: ContactFormE
             </InputGroup>
           </FormControl>
       <FormControl id="street">
-        <FormLabel>Street</FormLabel>
+        <FormLabel>Ulica</FormLabel>
         <Input
           value={street}
           type="text"
           onChange={(e) => setStreet(e.target.value)}
         />
       </FormControl>
-      <FormControl id="code">
-        <FormLabel>Code</FormLabel>
-        <Input
-          value={code}
-          type="text"
-          onChange={(e) => setCode(e.target.value)}
-        />
-      </FormControl>
-      <FormControl id="city">
-        <FormLabel>City</FormLabel>
-        <Input
-          value={city}
-          type="text"
-          onChange={(e) => setCity(e.target.value)}
-        />
-      </FormControl>
-      <FormControl id="description">
-        <FormLabel>Description</FormLabel>
-        <Input
-          value={description}
-          type="text"
-          onChange={(e) => setDescription(e.target.value)}
-        />
-      </FormControl>
+      <HStack>
+        <FormControl id="code">
+          <FormLabel>Kod</FormLabel>
+          <Input
+            value={code}
+            type="text"
+            onChange={(e) => setCode(e.target.value)}
+          />
+        </FormControl>
+        <FormControl id="city">
+          <FormLabel>Poczta</FormLabel>
+          <Input
+            value={city}
+            type="text"
+            onChange={(e) => setCity(e.target.value)}
+          />
+        </FormControl>
+      </HStack>
       <FormControl id="typeOdContact">
         <FormLabel>Typ kontaktu</FormLabel>
         <Select onChange={(e) => setTypeContact(e.target.value)} name="typeContact" placeholder='Wybierz...'>

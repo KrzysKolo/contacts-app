@@ -71,7 +71,7 @@ const ContactForm = ({addNewContact, onClose, onOpen}: ContactFormProps) => {
     <>
     <Stack>
       <FormControl id="name">
-        <FormLabel>Name</FormLabel>
+        <FormLabel>Nazwisko</FormLabel>
         <Input
           value={name}
           type="text"
